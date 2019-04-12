@@ -48,4 +48,9 @@ $app->get('/admin/cliente/{id}/editar', function($id){
 	$cliente->editar($id);
 });
 
+$app->get('/admin/cliente/lista', function(){
+	$cliente = new ClienteController;
+	$cliente->listar();
+});
+
 $app->run();

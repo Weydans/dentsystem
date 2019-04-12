@@ -15,7 +15,7 @@ class ClienteController extends Controller
 	private $action;
 	private $pageAction;
 	private $viewConteudo;
-	private $viewClienteConteudo;
+	private $viewClienteConteudo = array();
 	private $clienteConteudoValues;
 
 
@@ -108,14 +108,14 @@ class ClienteController extends Controller
 
 	}
 
-	public function list()
+	public function listar()
 	{		
-		$this->pageAction = 'Listar';
+		$this->pageAction = 'Lista';
 
-		//$this->setLinkConteudo('./app/view/cliente-view.html');
+		$this->setLinkConteudo('./app/view/cliente-view.html');
 		$this->setData();
 
-		$this->show();
+		$this->showViewList();
 	}
 
 	public function buscar()
@@ -147,6 +147,15 @@ class ClienteController extends Controller
 		$this->show();
 	}
 
+	private function showViewList()
+	{
+		$this->setLinkClienteConteudo('./app/view/cliente-lista.html');
+		$this->setLinkConteudo('./app/view/cliente-view.html');	
+		$this->setData();
+
+		$this->show();
+	}
+
 	/**
 	* <b>setData</b>:
 	* Reune os dados a serem substituidos na view principal
@@ -170,7 +179,7 @@ class ClienteController extends Controller
 		$this->clienteConteudoValues['action'] = $this->action;
 
 		if ($this->pageAction == "Cadastrar"){
-			$this->viewClienteConteudo['<li class="listar">'] = '<li>';
+			$this->viewClienteConteudo['<li class="lista">'] = '<li>';
 			$this->viewClienteConteudo['<li class="buscar">'] = '<li>';
 
 		} elseif ($this->pageAction == "Listar"){
@@ -179,10 +188,10 @@ class ClienteController extends Controller
 
 		} elseif ($this->pageAction == "Buscar"){
 			$this->viewClienteConteudo['<li class="cadastrar">'] = '<li>';
-			$this->viewClienteConteudo['<li class="listar">'] = '<li>';
+			$this->viewClienteConteudo['<li class="lista">'] = '<li>';
 		} else {
 			$this->viewClienteConteudo['<li class="cadastrar">'] = '<li>';
-			$this->viewClienteConteudo['<li class="listar">'] = '<li>';
+			$this->viewClienteConteudo['<li class="lista">'] = '<li>';
 			$this->viewClienteConteudo['<li class="buscar">'] = '<li>';
 		}
 

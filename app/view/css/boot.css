@@ -52,7 +52,12 @@ form span { display: block; margin-bottom: 6px; }
 }
 
 .btn-meddium{padding: 7px 25px; font-size: 1em;}
+.btn-smal{padding: 4px 15px; font-size: 0.9em;}
 
+.btn-red{background: #f77; color: #fff; border: 1px solid #e66;}
+.btn-red:hover{background: #f88; color: #fff; border: 1px solid #f77;}
+.btn-green{background: #0d7; color: #fff; border: 1px solid #0c6;}
+.btn-green:hover{background: #0e8; color: #fff; border: 1px solid #0d7;}
 .btn-blue{background: #09f; color: #fff; border: 1px solid #08e;}
 .btn-blue:hover{background: #0af; color: #fff; border: 1px solid #09f;}
 .btn-dark-blue{background: #03f; color: #fff; border: 1px solid #02e;}

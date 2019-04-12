@@ -130,3 +130,21 @@ select{float:left; width: 50%; padding: 5px 10px; border: 1px solid #ddd; border
 */
 .cliente{background: #fff; padding: 40px 30px;}
 
+/* 
+   ===== LISTA CLIENTES =====
+*/
+.lista h1{padding: 8px 15px; background: #D4D4D4; border: 1px solid #c5c5c5; font-size: 1.2em; font-weight: 100; color: #fff; text-shadow: 1px 1px 2px #777;}
+.lista ul{border-bottom: 1px solid #EBEBEB; font-size: 0.875em;}
+.lista .topoLista ul{padding: 3px 0; background: #e9e9e9; border-bottom: 1px solid #d5d5d5;}
+.lista .topoLista li{border-right: 1px solid #fff;}
+.topoLista li.itemAction{border: none;}
+.lista li{display: inline-block; padding: 4px; text-align: center; clear: both; vertical-align: middle;}
+.lista .btn{padding: 3px 0; font-size: 0.9em; width: 100%; text-align: center;}
+.lista .itemId{width: 7%;}
+.lista .itemName{width: 30%;}
+.lista .itemPhone1{width: 14%;}
+.lista .itemEmail{width: 26%;}
+.lista .itemAction{width: 21%; text-align: center; border: none;}
+.lista .itemVer{width: 6.6%;}
+.lista .itemEditar{width: 6.6%;}
+.lista .itemExcluir{width: 6.6%;}
