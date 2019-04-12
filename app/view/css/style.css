@@ -1,0 +1,132 @@
+/* 
+   ===== LOGIN =====
+*/
+.container.bg-login{background: #fefefe; min-height: 100%; position: absolute; bottom: 0;}
+.content.login{
+    width: 32%; 
+    margin: 0 34%; 
+    position: absolute; 
+    top: 70px; 
+    padding: 40px 50px; 
+    color: #444; 
+    background: #f5f5f5; 
+    border: 1px solid #eee;
+    font-size: 0.9em;
+}
+.login header{border-bottom: 1px solid #e9e9e9; margin-bottom: 15px;}
+.login h1{margin-bottom: 10px; text-transform: uppercase; color: #09f; text-align: center}
+.login form{margin-top: 20px;}
+.login 
+input,
+textarea,
+select { padding: 10px; display: block; width: 100%; margin-bottom: 20px; font-size: 0.9em;}
+.login input{border-radius: 6px; border: 1px solid #e9e9e9; color: #666;}
+.login a{
+    display: block;
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.8em;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* 
+   ===== CABECALHO =====
+*/
+.topo{float: left; width: 83%; margin-left: 17%; padding: 3px; position: fixed; border-bottom: 1px solid #e9e9e9;}
+.topo h1{margin-left: 30px; color: #09f; font-size: 0.975em; font-weight: 100;}
+.topo span{font-size: 1.2em; font-weight: 900;}
+
+.topo div{width: 50%; float: left;}
+
+.infoAction{padding-right: 40px; text-align: right;}
+.infoAction li{display: inline-block; font-size: 0.8em; vertical-align: middle;}
+.infoAction .bemVindo{color: #6AD64B;}
+.infoAction .nomeUser{color: #409FFF;}
+.infoAction .pipe{font-size: 1.4em; padding: 0 8px; color: #D1D1D1;}
+.infoAction .btn{padding: 3px 22px; margin-top: 1px; color: red;}
+.infoAction .btn:hover{color: #fff;}
+
+/* 
+   ===== RODAPE =====
+*/
+.rodape{
+    float: left; 
+    width: 83%; 
+    margin-left: 17%; 
+    /*position: fixed;
+    bottom: 0; */ 
+    text-align: center; 
+    padding: 8px;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 0.75em;
+    font-weight: 100;
+    line-height: 1.3em;
+}
+
+/* 
+   ===== SIDEBAR  =====
+*/
+.sidebar{
+    float: left; 
+    width: 17%; 
+    min-height: 100%; 
+    position: fixed; 
+    z-index: 99;
+    background: #1A1E22; 
+    /*display: none;*/
+}
+.sidebar .logo{text-align: center; border-right: 1px solid #ddd;}
+.sidebar .logo img{height: 28px; padding-top: 2px; margin-top: 1px;}
+
+.userInfo, .navegacao{width: 100%; padding: 15px 10px 15px 22px ; font-family: 'Tahoma';}
+
+.userInfo{background: #1A1E22; clear: both;}
+.userInfo img{float: left; width: 26%; margin-right: 5%; border-radius: 50%;}
+.userInfo h1{float:left; width: 68%; margin-top: 9px; font-size: 0.82em; font-weight: 100; color: #f5f5f5;}
+.userInfo p{float:left; width: 68%; margin-top: 3px; font-size: 0.68em; font-weight: 100; color: #999999;}
+
+.navegacao{clear: both; padding-left: 25px; background: #1D2228; font-size: 0.75em; text-transform: uppercase; color: #999999;}
+
+.mainMenu{font-size: 0.9em;}
+.mainMenu img{width: 16px; height: 14px; margin-right: 10px;}
+.mainMenu > ul {padding: 8px 0;}
+.mainMenu > ul > li{padding: 8px 0 8px 40px; max-width: 100%; color: #999999;}
+.mainMenu > ul > li:hover > a{color: #fff;}
+.mainMenu > ul > li > a{color: #999999; font-size: 1em;}
+.mainMenu > ul > li:hover{background: rgba(0,0,0,.15); padding-left: 36px; border-left: 4px solid #409FFF;}
+
+/* 
+   ===== PAGE =====
+*/
+.page{float: left; width: 83%; margin-left: 17%; margin-top: 30px;}
+
+.topoPage{padding: 15px 40px;}
+.topoPage h1{font-size: 1.5em; color: #777; font-weight: 100;}
+
+.left, .right{float: left; width: 50%; color: #999999;}
+.left p{font-size: 0.75em; font-weight: 100; margin-top: 2px;}
+
+.right{text-align: right;}
+.right p{padding: 12px 0; font-size: 1em; font-weight: 100;}
+.right img{margin-right: 6px;}
+
+.workSpace{min-height: 300px; padding: 25px 35px 40px 35px;}
+.workSpace .menuPage li{background: #fff; margin-right: -7px; padding: 5px 20px; border: 1px solid #ddd;}
+.workSpace .menuPage li:hover{background: #eeeeee;}
+.workSpace .menuPage .bottomNone{border-bottom: 1px solid #fff;}
+.workSpace .menuPage a{display: inline-block; font-size: 0.9em; color: #0099ff;}
+.workSpace .menuPage a:hover{color: #fff; text-shadow: 1px 1px 2px #666;}
+.workSpace label{float: left; width: 25%; margin-right: 2%; text-align: right; padding-top: 5px; font-size: 0.9em;}
+.workSpace 
+input,
+textarea,
+select{float:left; width: 50%; padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.8em; color: #999999;}
+.workSpace button{float: left; margin-left: 27%;}
+
+/* 
+   ===== CLIENTES =====
+*/
+.cliente{background: #fff; padding: 40px 30px;}
+

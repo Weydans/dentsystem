@@ -1,0 +1,51 @@
+<form name="formClienete" action="http://dentsystem.com/admin/cliente/{action}" method="post">
+	<label>Id</label>
+	<input type="text" name="cliente_id" readonly value="{cliente_id}" />			
+
+	<label>Nome</label>
+	<input type="text" name="cliente_name" value="{cliente_name}" />			
+
+	<label>RG</label>
+	<input type="text" name="cliente_rg" value="{cliente_rg}" placeholder="Apenas números" />			
+
+	<label>CPF</label>
+	<input type="text" name="cliente_cpf" value="{cliente_cpf}" placeholder="Apenas números" />			
+
+	<label>Email</label>
+	<input type="email" name="cliente_email" value="{cliente_email}" />			
+
+	<label>Data de Nascimento</label>
+	<input type="date" name="cliente_nascimento" value="{cliente_nascimento}" />			
+
+	<label>Telefone 1</label>
+	<input type="text" name="cliente_phone1" value="{cliente_phone1}" placeholder="Apenas números" />	
+
+	<label>Telefone 2</label>
+	<input type="text" name="cliente_phone2" value="{cliente_phone2}" placeholder="Apenas números" />	
+
+	<label>Cep</label>
+	<input type="text" name="endereco_cep" value="{endereco_cep}" placeholder="Apenas números" />		
+
+	<label>Logradouro</label>
+	<input type="text" name="endereco_logradouro" value="{endereco_logradouro}" />
+
+	<label>Número</label>
+	<input type="text" name="cliente_endereco_numero" value="{cliente_endereco_numero}" />	
+
+	<label>Complemento</label>
+	<input type="text" name="cliente_endereco_complemento" value="{cliente_endereco_complemento}" />	
+
+	<label>Bairro</label>
+	<input type="text" name="endereco_bairro" value="{endereco_bairro}" />			
+
+	<label>Cidade</label>
+	<input type="text" name="endereco_cidade" value="{endereco_cidade}" />			
+
+	<label>Estado</label>
+	<input type="text" name="endereco_estado" value="{endereco_estado}" />			
+
+	<label>País</label>
+	<input type="text" name="endereco_pais" value="{endereco_pais}" />
+
+	<button class="btn btn-meddium btn-blue">{pageAction}</button>
+</form>

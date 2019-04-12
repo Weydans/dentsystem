@@ -1,0 +1,41 @@
+
+<main class="container page">
+	<div class="content">
+		<header>
+			<h1>{action}</h1>
+		</header>
+
+		<form class="main-form bg-light" name="" action="" method="post">
+			<fieldset>
+				<label>
+					<span>Titulo da categoria</span>
+					<input type="text" name="category_name" placeholder="Título"/>
+				</label>
+
+				<label>
+					<span>Descrição</span>
+					<textarea name="category_description" rows="5" placeholder="Descrição"></textarea>
+				</label>
+			</fieldset>
+
+			<fieldset class="last_field">
+				<label class="first date">
+					<span>Data</span>
+					<input type="date" name="category_date"/>
+				</label>
+
+				<label class="last">
+					<span>Subcategoria</span>
+					<select>
+						<option name="category_parent">Selecionar uma categoria</option>								
+					</select>
+				</label>
+			</fieldset>
+
+			<button class="btn btn-meddium btn-blue">Cadastrar Categoria</button>
+		</form>
+
+		<div class="clear"></div>
+	</div>
+</main>
+
