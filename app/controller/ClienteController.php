@@ -112,8 +112,9 @@ class ClienteController extends Controller
 	{		
 		$this->pageAction = 'Lista';
 
-		$this->setLinkConteudo('./app/view/cliente-view.html');
-		$this->setData();
+		$listaClientes = $this->setGetLista();
+		$this->clienteConteudoValues['itemLista'] = $listaClientes;
+		$this->setLinkClienteConteudo('./app/view/cliente-lista.html');
 
 		$this->showViewList();
 	}
@@ -149,11 +150,29 @@ class ClienteController extends Controller
 
 	private function showViewList()
 	{
-		$this->setLinkClienteConteudo('./app/view/cliente-lista.html');
 		$this->setLinkConteudo('./app/view/cliente-view.html');	
 		$this->setData();
 
 		$this->show();
+	}
+
+	private function setGetLista()
+	{
+		$cliente = new Cliente;
+		$listaClientes = $cliente->listAll();
+		
+		$lista = '';
+		$backgroundRow = 0;
+
+		foreach ($listaClientes as $cliente) {
+			$backgroundRow % 2 == 0 ? $cliente['backgroundRow'] = 'par' : $cliente['backgroundRow'] = 'impar';
+
+			$lista .= Render::show('./app/view/item-lista.html', $cliente);
+
+			$backgroundRow++;
+		}
+ 		
+		return $lista;
 	}
 
 	/**
