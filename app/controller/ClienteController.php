@@ -41,6 +41,7 @@ class ClienteController extends Controller
 
 		} elseif (empty($dadosForm['cliente_id'])){
 			$this->pageAction = 'Cadastrar';
+			$this->action = 'cadastrar';
 
 			$cadResult = $this->exeCadastrar($dadosForm);
 
@@ -171,7 +172,7 @@ class ClienteController extends Controller
 
 			$backgroundRow++;
 		}
- 		
+
 		return $lista;
 	}
 
@@ -474,7 +475,6 @@ class ClienteController extends Controller
 
 		} elseif (strlen($formData['cliente_cpf']) !== 11  || !is_numeric($formData['cliente_cpf'])){
 			$this->msg = Msg::setMsg('O campo <b>CPF</b> deve conter apenas números, sendo exatamente 11 digitos.', ERROR);
-
 		} elseif (strlen($formData['cliente_email']) > 65 || !filter_var($formData['cliente_email'], FILTER_VALIDATE_EMAIL)){
 			$this->msg = Msg::setMsg('Informe um <b>E-mail</b> válido com no máximo 65 caracteres.', ERROR);
 
