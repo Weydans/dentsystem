@@ -109,16 +109,58 @@ class ClienteController extends Controller
 
 	}
 
+
 	public function listar()
 	{		
 		$this->pageAction = 'Lista';
 
-		$listaClientes = $this->setGetLista();
+		$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+		if ($id){
+			$this->excluir($id);
+
+		} elseif ($id !== null && $id === false) {
+			$this->msg = Msg::setMsg('Informe um valor válido para poder excluir um usuário.', ERROR);
+		}
+
+		$listaClientes = $this->getLista();
 		$this->clienteConteudoValues['itemLista'] = $listaClientes;
 		$this->setLinkClienteConteudo('./app/view/cliente-lista.html');
 
 		$this->showViewList();
 	}
+
+
+	private function excluir($id)
+	{
+		$cliente = new Cliente;
+		$clienteExiste = $cliente->find($id);
+
+		if ($clienteExiste === false){
+			$this->msg = Msg::setMsg('Você tentou excluir um cliente que nao está cadastrados no sistema.', ERROR);
+
+		} elseif (is_array($clienteExiste)) {
+			$clienteEndereco = new ClienteEndereco;
+			$resCadClienteEndereco = $clienteEndereco->removeByClienteId($clienteExiste['cliente_id']);
+
+			if ($resCadClienteEndereco === true){
+				$resCliente = $cliente->delete($clienteExiste['cliente_id']);
+
+				if ($resCliente === true){
+					$this->msg = Msg::setMsg("Cliente <b>{$clienteExiste['cliente_name']}</b> excluído(a) com sucesso.", ACCEPT);
+				} else {
+					$this->msg = Msg::setMsg('Erro ao excluir Cliente.', ERROR);
+				}
+
+			} else {
+				$this->msg = Msg::setMsg('Erro ao excluir ClienteEndereco.', ERROR);
+			}
+
+		} else {
+			$this->msg = Msg::setMsg('Erro no método excluir.', ERROR);
+		}
+	}
+
 
 	public function buscar()
 	{
@@ -127,7 +169,8 @@ class ClienteController extends Controller
 
 		$this->setData();
 		$this->show();
-	}
+	}	
+
 
 	/**
 	* <b>show</b>:
@@ -157,7 +200,7 @@ class ClienteController extends Controller
 		$this->show();
 	}
 
-	private function setGetLista()
+	private function getLista()
 	{
 		$cliente = new Cliente;
 		$listaClientes = $cliente->listAll();

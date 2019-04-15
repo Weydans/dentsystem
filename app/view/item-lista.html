@@ -1,3 +1,4 @@
+
 <ul class="{backgroundRow}">
 	<li class="itemId">{cliente_id}</li>
 	<li class="itemName">{cliente_name}</li>
@@ -14,7 +15,8 @@
 		</a>
 	</li>
 	<li class="itemExcluir">
-		<a href="http://dentsystem.com/admin/cliente/{cliente_id}/excluir">
+		<a href="http://dentsystem.com/admin/cliente/lista?id={cliente_id}" 
+			onclick="return confirm('Dseseja realmente excluir cliente {cliente_name} permanentemente?')">
 			<span class="btn btn-red">Excluir</span>
 		</a>
 	</li>
