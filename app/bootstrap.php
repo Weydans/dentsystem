@@ -1,5 +1,15 @@
 <?php
 
+/**
+* </b>bootstrap</b>: 
+* Arquivo responsável pelo inicialização do sistema,
+* Instancia um objeto da classe Route.php para obter a rota e
+* direciona a partir daí para os respectivos Controllers com base na rota.
+* 
+* @author Weydans Campos de Barros, 01/03/2019.
+*/
+
+// DEPENDÊNCIAS NECESSÁRIAS PARA O FUNCIONAMENTO DO SISTEMA
 require_once('./core/config.php');
 require_once('./app/config.php');
 require_once('./core/class/Autoload.php');
@@ -25,7 +35,7 @@ $app->get('/admin/dashboard', function(){
 
 $app->get('/admin/cliente', function(){
 	$cliente = new ClienteController;
-	$cliente->pageCadastro();
+	$cliente->buscar();
 });
 
 $app->post('/admin/cliente/cadastrar', function(){

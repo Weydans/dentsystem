@@ -1,3 +1,10 @@
+/*
+* Arquivo responsável pelas configurações de estilo personalizado do sistema,
+* Configura parte estrutural, interação e estilização de cores.
+*
+* @author Weydans Campos de Barros, 05/04/2019.
+*/
+
 /* 
    ===== LOGIN =====
 */
@@ -13,6 +20,7 @@
     border: 1px solid #eee;
     font-size: 0.9em;
 }
+
 .login header{border-bottom: 1px solid #e9e9e9; margin-bottom: 15px;}
 .login h1{margin-bottom: 10px; text-transform: uppercase; color: #09f; text-align: center}
 .login form{margin-top: 20px;}

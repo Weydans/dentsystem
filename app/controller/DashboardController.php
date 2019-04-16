@@ -1,8 +1,11 @@
 <?php
 
 /**
- * 
+ * <b>DashboardController</b>:
+ *
+ * @author Weydans C. Barros, Belo Horizonte, 05/04/2019
  */
+
 class DashboardController extends Controller
 {
 	private static $pageTitle = 'Dashboard';

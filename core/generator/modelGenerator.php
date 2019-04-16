@@ -1,5 +1,13 @@
 <?php
 
+/**
+* <b>modelGenerator</b>:
+* Arquivo responsável pela geração de todas as models do sistema.
+* Utiliza de interface gráfica e regra simples para geração de classes.*
+* @author Weydans Campos de Barros, 01/03/2019.
+*/
+
+// DEPENDÊNCIAS NECESSÁRIAS PARA O FUNCIONAMENTO DO SISTEMA
 require('../config.php');
 require('../helper/Render.php');
 require('../helper/Msg.php');
@@ -75,7 +83,7 @@ if ($data){
 
 	} else {
 		$msg = ['<div class="msg"></div>' => Msg::setMsg('Preencha todos os campos do formulário.', ERROR)];
-	}// end if capos preenchidos
+	}// end if campos preenchidos
 
 } else {
 	$msg = ['<div class="msg"></div>' => ''];

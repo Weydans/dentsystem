@@ -3,7 +3,7 @@
 /**
 * <b>Conn</b>:
 * Classe responsável por gerenciar todas as conexões ao 
-* banco de dados através do design pathern singleton.
+* banco de dados através do design pathern Singleton.*
 * @author Weydans Campos de Barros, 06/03/2019.
 */
 

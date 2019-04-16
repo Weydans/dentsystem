@@ -2,7 +2,7 @@
 
 /**
 * <b>Autoload</b> 
-* Classe responsável pelo carregamento automático das classe do sistema.
+* Classe responsável pelo carregamento automático das classe do sistema.*
 * @author Weydans Campos de Barros, 06/03/2019.
 */
 

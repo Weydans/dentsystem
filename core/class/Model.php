@@ -1,8 +1,12 @@
 <?php
 
 /**
- * 
- */
+* <b>Model</b>:
+* Classe abstrata base para todas as models do sistema,
+* Realiza manipulação de dados no banco de dados de maneira genérica.*
+* @author Weydans Campos de Barros, 06/03/2019.
+*/
+
 abstract class Model
 {
 	private $campos;
@@ -11,10 +15,13 @@ abstract class Model
 	private $bindId;
 	private $setUpdate;
 
-    /**
-     * ========================================================
-     *  SALVA USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+   /**
+     * <b>saveModel</b>:
+     * Realiza cadastro genérico no banco de dados.
+     * @param string $tabela Recebe o nome da tabela na base de dados.
+     * @param array $campos Recebe os campos da tabela.
+     * @param array $data Recebe os dados a serem cadastrados.
+     * @return bool Retorna true caso o cadastro seja efetuado com sucesso.
      */
     protected function saveModel(string $tabela, array $campos, array $data) 
     {	
@@ -39,9 +46,12 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  ATUALIZA DADOS DO USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>updateModel</b>:
+     * Realiza atualização genérica no banco de dados.
+     * @param string $tabela Recebe o nome da tabela na base de dados.
+     * @param array $campos Recebe os campos da tabela.
+     * @param data $data Recebe os dados a serem cadastrados.
+     * @return bool Retorna true caso o atualização seja efetuada com sucesso.
      */
     protected function updateModel(string $tabela, array $campos, array $data) 
     {  
@@ -63,9 +73,12 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  ENCONTRA UM DETERMINADO USUARIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>findModel</b>:
+     * Realiza pesquisa genérica por um registro no banco de dados.
+     * @param string $tabela Recebe o nome da tabela na base de dados.
+     * @param array $campos Recebe os campos da tabela.
+     * @param int $id Recebe o id do registro procurado.
+     * @return array Retorna um array associativo caso registro exista na tabela.
      */
     protected  function findModel(string $tabela, array $campos, int $id) 
     {
@@ -90,9 +103,10 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  LISTA TODOS OS USUARIOS CADASTRADOS NO BANCO DE DADOS
-     * ========================================================
+     * <b>listAllModel</b>:
+     * Recupera todos os registros de uma determinada tabela do banco de dados.
+     * @param string $tabela Recebe o nome da tabela na base de dados.
+     * @return array Retorna uma matriz numérica de arrays associativos.
      */
     protected function listAllModel(string $tabela) 
     {
@@ -108,9 +122,12 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     * EXCLUI USUARIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>deleteModel</b>:
+     * Remove um registro genérico da tabela.
+     * @param string $tabela Recebe o nome da tabela na base de dados.
+     * @param array $campos Recebe os campos da tabela.
+     * @param int $id Recebe o id do registro procurado.
+     * @return bool Retorna true caso registro removido com sucesso.
      */
     protected function deleteModel(string $tabela, array $campos, int $id) 
     {
@@ -131,9 +148,11 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  ENCONTRA O PROXIMO ID A SER INSERIDO NA TABELA PESSOAS
-     * ========================================================
+     * <b>nextIdModel</b>:
+     * Obtem o próximo Id a ser inserido na tabela.
+     * @param string $tabela Recebe o nome da tabela na base de dados.
+     * @param array $campos Recebe os campos da tabela.
+     * @return int Retorna o próximo id a ser inserido na tabela.
      */
     protected function nextIdModel(string $tabela, array $campos)
     {
@@ -158,9 +177,9 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  SALVA USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>setUpdate</b>:
+     * Prepara e monta os binds e os values na query de update.
+     * @param array $campos Recebe os campos da tabela.
      */
     private function setUpdate(array $campos)
     {
@@ -173,9 +192,9 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  SALVA USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>getCampos</b>:
+     * Transforma o array campos em uma string.
+     * @param array $campos Recebe os campos da tabela.
      */
     private function getCampos(array $campos)
     {
@@ -183,9 +202,9 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  SALVA USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>getBinds</b>:
+     * Transforma o array campos em uma string com os links do prepared statements.
+     * @param array $campos Recebe os campos da tabela.
      */
     private function getBinds(array $campos)
     {
@@ -193,9 +212,9 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  SALVA USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>getCampoId</b>:
+     * Obtem o valor do campo id no array campos.
+     * @param array $campos Recebe os campos da tabela.
      */
     private function getCampoId(array $campos)
     {
@@ -203,9 +222,9 @@ abstract class Model
     }
 
     /**
-     * ========================================================
-     *  SALVA USUÁRIO NO BANCO DE DADOS
-     * ========================================================
+     * <b>getBindId</b>:
+     * Obtem o bind do campo id.
+     * @param array $campos Recebe os campos da tabela.
      */
     private function getBindId(array $campos)
     {

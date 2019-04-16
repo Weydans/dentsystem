@@ -1,7 +1,11 @@
 <?php
 
 /**
- * 
+ * <b>ClienteController</b>:
+ * Classe Responsável por todo o gerenciamento de clientes do sistema,
+ * Cadastro, edição, busca, exclusão e gerenciamento das views relacionadas 
+ * a gestão de clientes.
+ * @author Weydans Campos de Barros, 16/04/2019.
  */
 class ClienteController extends Controller
 {
@@ -18,7 +22,10 @@ class ClienteController extends Controller
 	private $viewClienteConteudo = array();
 	private $clienteConteudoValues;
 
-
+	/**
+	 * <b>pageCadastro</b>:
+	 *	Executa a exibição da página de cadastro 
+	 */
 	public function pageCadastro()
 	{
 		$this->pageAction = 'Cadastrar';
@@ -30,7 +37,12 @@ class ClienteController extends Controller
 		$this->showViewForm();
 	}
 
-
+	/**
+	 * <b>cadastrar</b>:
+	 * Recebe os dados do formulário de cadastro via metodo POST,
+	 * Configura layout, chama metodo auxiliar que realiza o cadastro e
+	 * redireciona para a página de edição em caso de sucesso.
+	 */
 	public function cadastrar()
 	{
 		$dadosForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -55,7 +67,14 @@ class ClienteController extends Controller
 		$this->showViewForm();
 	}
 	
-
+	/**
+	 * <b>editar</b>:
+	 * Recebe via GET parametro contendo o id do usuárioa ser editado,
+	 * Chama método auxiliar exeAtualizar, caso atualização com sucesso.
+	 * Exibe Menságens ao usuário sobre cadastro edição.
+	 * Executa a exibição da página de edição.
+	 * @param numeric $id Recebe o id do usuário a ser atualizado pelo sistema.
+	 */
 	public function editar($id)
 	{	
 		$this->pageAction = 'Atualizar';		
@@ -109,7 +128,13 @@ class ClienteController extends Controller
 
 	}
 
-
+	/**
+	 * <b>listar</b>:
+	 * Realiza a listagem de clientes cadastrados no sistema atraves dachamada do metodo getLista(),
+	 * Exibe botões de ação de ver, editar, e excluir, podendo assim redirecionar
+	 * o fluxo da aplicação para outas telas ou receber dados para exclusão.
+	 * Executa a exibição da página de edição,
+	 */
 	public function listar()
 	{		
 		$this->pageAction = 'Lista';
@@ -130,7 +155,12 @@ class ClienteController extends Controller
 		$this->showViewList();
 	}
 
-
+	/**
+	 * <b>excluir</b>:
+	 * Exclui clientes cadastrados no sistema,
+	 * Recebe o id do cliente a ser excluído, exclui, e configura menságens ao usuário,
+	 * Redireciona a aplicação para a página de edição,
+	 */
 	private function excluir($id)
 	{
 		$cliente = new Cliente;
@@ -176,7 +206,8 @@ class ClienteController extends Controller
 
 	/**
 	* <b>show</b>:
-	* Realiza a montagem e exibição da view
+	* Configura a motagem das views no template
+	* Realiza a montagem e exibição da view completa
 	*/
 	private function show()
 	{		
@@ -185,6 +216,11 @@ class ClienteController extends Controller
 		$this->setContent('./app/view/dashboard.html');
 	}
 
+	/** 
+	* <b>showViewForm</b>:
+	* Configura a motagem das view de exibição do formulário de cadastro 
+	* Realiza a montagem e exibição da view completa atraves do método show()
+	*/
 	private function showViewForm()
 	{
 		$this->setLinkClienteConteudo('./app/view/cliente-form.html');
@@ -194,6 +230,11 @@ class ClienteController extends Controller
 		$this->show();
 	}
 
+	/** 
+	* <b>showViewList</b>:
+	* Configura a motagem das view de exibição da listagem de clientes
+	* Realiza a montagem e exibição da view completa atraves do método show()
+	*/
 	private function showViewList()
 	{
 		$this->setLinkConteudo('./app/view/cliente-view.html');	
@@ -202,6 +243,11 @@ class ClienteController extends Controller
 		$this->show();
 	}
 
+	/** 
+	* <b>showViewBusca</b>:
+	* Configura a motagem das view de exibição do formulário de busca de cliente
+	* Realiza a montagem e exibição da view completa atraves do método show()
+	*/
 	private function showViewBusca()
 	{
 		$this->setLinkConteudo('./app/view/cliente-view.html');	
@@ -210,6 +256,12 @@ class ClienteController extends Controller
 		$this->show();
 	}
 
+	/** 
+	* <b>getLista</b>:
+	* Realiza leitura na tabela clientes e armazena tosos os dados encontrados,
+	* Personaliza estilo e carrega os dados na view item-lista.html dinamicamente.
+	* @return string $lista String contendo o HTML da lista de clientes.
+	*/
 	private function getLista()
 	{
 		$cliente = new Cliente;
@@ -243,8 +295,10 @@ class ClienteController extends Controller
 
 	/**
 	* <b>setLinkClienteConteudo</b>:
-	* Substitui o link clienteConteudo pela view
-	* cliente-form ou client-list da view secundária
+	* Substitui o link {clienteConteudo} da view cliente-view.html 
+	* pela view que for solicitada dinamicamente.
+	* @param string $caminhoArquivoPagina Caminho completo da view 
+	* que irá substituir o link clienteConteudo (ex: './app/view/cliente-form.html' )
 	*/
 	private function setLinkClienteConteudo(string $caminhoArquivoPagina)
 	{
@@ -275,13 +329,23 @@ class ClienteController extends Controller
 
 	/**
 	* <b>setLinkConteudo</b>:
-	* Substitui o link conteudo da view secundária
+	* Substitui o link {conteudo} da view dashboard.html 
+	* pela view solicitada dinamicamente.
+	* @param string $caminhoArquivoPagina Caminho completo da view 
+	* que irá substituir o link {conteudo} (ex: './app/view/cliente-view.html' )
 	*/
 	private function setLinkConteudo(string $caminhoArquivoPagina)
 	{
 		$this->viewConteudo = Render::show($caminhoArquivoPagina, $this->viewClienteConteudo);
 	}
 
+	/**
+	* <b>exeCadastrar</b>:
+	* Executa o cadastro de clientes, endereços e dados auxiliares da tabela cliente_endereco,
+	* Recebe via POST os dados do formulário de cadastro.
+	* @param array $dadosForm Dados do cliente recebidos via POST 
+	* @return int $this->dataForm['cliente_id'] Id do cliente cadastrado em caso de sucesso.
+	*/
 	private function exeCadastrar(array $dadosForm)
 	{
 		$this->dataForm = $dadosForm;
@@ -289,6 +353,7 @@ class ClienteController extends Controller
 		$cliente = new Cliente();
 		$this->dataForm['cliente_id'] = $cliente->nextId();
 
+		// Cadastra cliente
 		$this->dataCliente = array();
 		$resCadCliente = false;
 		$resCadCliente = $this->cadastrarClente($cliente, $this->dataCliente);
@@ -303,11 +368,13 @@ class ClienteController extends Controller
 		$resCadEndereco = false;
 
 		if (is_array($cepExiste) && !empty($cepExiste)){
+
+			// Cadastra dados de cliente_endereco
 			$resCadEndereco = true;
 			$enderecoId = $cepExiste[0]['endereco_id'];
 			$resCadClienteEndereco = $this->cadastrarClienteEndereco($clienteEndereco, $resCadCliente, $enderecoId);
 
-		} else {
+		} else { // Cadastra endereco
 			$resCadEndereco = $this->cadastrarEndereco($resCadCliente, $endereco, $this->dataEndereco);
 
 			$cepExiste = Endereco::findCep($this->dataForm['endereco_cep']);			
@@ -317,8 +384,8 @@ class ClienteController extends Controller
 		}
 
 		if ($resCadCliente === true && $resCadEndereco === true && $resCadClienteEndereco === true){
-			/*$this->clienteConteudoValues = $this->dataForm;*/
 			return $this->dataForm['cliente_id'];
+
 		} else {
 			$this->dataForm['cliente_id'] = '';
 			$this->clienteConteudoValues = $this->dataForm;
@@ -326,6 +393,14 @@ class ClienteController extends Controller
 		
 	}
 
+	/**
+	* <b>cadastrarClente</b>:
+	* Executa o cadastro de cliente,
+	* Recebe um objeto cliente e um array contendo os dados a serem cadastrados.
+	* @param object $cliente Objeto da classe Cliente utilizado para manipulação dos dados. 
+	* @param array $dadosForm Dados do formulário de cadastro de clientes.
+	* @return bool $cliente->save($dataCliente) Retorna true caso de sucesso no cadastramento.
+	*/
 	private function cadastrarClente(object $cliente, array $dataCliente)
 	{
 		if (is_numeric($this->dataForm['cliente_id'])){
@@ -338,7 +413,14 @@ class ClienteController extends Controller
 		}
 	}
 
-	private function cadastrarEndereco($resCadCliente, object $endereco, array $dataEndereco)
+	/**
+	* <b>cadastrarEndereco</b>:
+	* Executa o cadastro de endereço.
+	* @param bool $resCadCliente Recebe o resultado do cadastramento de um cliente. 
+	* @param object $endereco Objeto da classe Endereco utilizado para manipulação dos dados.
+	* @return bool $endereco->save($dataEndereco) Retorna true caso de sucesso no cadastramento.
+	*/
+	private function cadastrarEndereco($resCadCliente, object $endereco)
 	{ 
 		$this->dataForm['endereco_id'] = $endereco->nextId();  
 
@@ -349,6 +431,14 @@ class ClienteController extends Controller
 		
 	}
 
+	/**
+	* <b>cadastrarClienteEndereco</b>:
+	* Executa o cadastro na tabela cliente_endereco,
+	* @param bool $resCadCliente Recebe o resultado do cadastramento de um cliente. 
+	* @param object $clienteEndereco Objeto da classe ClienteEndereco utilizado para manipulação dos dados.
+	* @param int $enderecoId Id do endereço informado no formulário de cadastro.
+	* @return bool $clienteEndereco->save($this->dataClienteEndereco) Retorna true caso de sucesso no cadastramento.
+	*/
 	private function cadastrarClienteEndereco(object $clienteEndereco, $resCadCliente, $enderecoId)
 	{
 		if ($resCadCliente === true){
@@ -361,6 +451,12 @@ class ClienteController extends Controller
 		}
 	}
 
+	/**
+	* <b>exeAtualizar</b>:
+	* Executa o atualização de clientes,
+	* @param array $dadosForm Dados do cliente recebidos através do formulário de edição
+	* @return int $this->dataForm['cliente_id'] Id do cliente que foi atualizado em caso de sucesso.
+	*/
 	private function exeAtualizar(array $dadosForm)
 	{
 		$this->dataForm = $dadosForm;
@@ -370,6 +466,7 @@ class ClienteController extends Controller
 		$this->dataCliente = array();
 		$resAtualizarCliente = false;
 
+		// Atualiza cliente
 		$dataCliente = $this->getObjectData(Cliente::getColumns());
 		$resAtualizarCliente = $this->atualizarClente($cliente, $this->dataCliente);
 
@@ -390,17 +487,18 @@ class ClienteController extends Controller
 
 			$resAtualizarClienteEndereco = $this->atualizarClienteEndereco($clienteEndereco, $resAtualizarCliente, $enderecoId);
 
-		// Cadastra endereco e atualiza clienteCndereco
-		} else {
+		} else { 
 			$dataEndereco = $this->getObjectData(Endereco::getColumns());
 			$dataEndereco['endereco_id'] = $endereco->nextId();
 
+			// Cadastra endereco
 			$resCadEndereco = $this->cadastrarEndereco($resAtualizarCliente, $endereco, $dataEndereco);
 
 			$cepExiste = Endereco::findCep($this->dataForm['endereco_cep']);			
 			$enderecoId = $cepExiste[0]['endereco_id'];
 			$this->dataForm['endereco_id'] = $enderecoId;
 
+			// Atualiza clienteCndereco
 			$dataClienteEndereco = $this->getObjectData(ClienteEndereco::getColumns());
 			$resAtualizarClienteEndereco = $clienteEndereco->update($dataClienteEndereco);
 		}
@@ -416,6 +514,14 @@ class ClienteController extends Controller
 		
 	}
 
+	/**
+	* <b>atualizarClente</b>:
+	* Executa o atualização de cliente no banco de dados,
+	* Recebe um objeto cliente e um array contendo os dados a serem cadastrados.
+	* @param object $cliente Objeto da classe Cliente utilizado para manipulação dos dados. 
+	* @param array $dataCliente Dados do cliente recuperados do banco de dados.
+	* @return bool $cliente->update($dataCliente) Retorna true caso de sucesso na atualização.
+	*/
 	private function atualizarClente(object $cliente, array $dataCliente)
 	{
 		if (is_numeric($this->dataForm['cliente_id'])){
@@ -428,7 +534,15 @@ class ClienteController extends Controller
 		}
 	}
 
-	private function atualizarClienteEndereco(object $clienteEndereco, $resCadCliente, $enderecoId)
+	/**
+	* <b>atualizarClienteEndereco</b>:
+	* Executa o atualização de clienteEndereco no banco de dados,
+	* @param object $clienteEndereco Objeto da classe ClienteEndereco utilizado para manipulação dos dados. 
+	* @param bool $resAtualizarCliente Recebe resultado da atualização de cliente. 
+	* @param int $enderecoId Id do endereco no banco de dados.
+	* @return bool $clienteEndereco->update($this->dataClienteEndereco) Retorna true caso de sucesso na atualização.
+	*/
+	private function atualizarClienteEndereco(object $clienteEndereco, $resAtualizarCliente, $enderecoId)
 	{
 		if ($resCadCliente === true){
 			$this->dataClienteEndereco['cliente_id'] = $this->dataForm['cliente_id'];
@@ -440,6 +554,16 @@ class ClienteController extends Controller
 		}
 	}
 
+	/**
+	* <b>getObjectData</b>:
+	* Monta um array associativo contendo apenas os dados relevantes para cada objeto
+	* de acordo com os dados presentes no formulário de cadastros
+	* e no array colunas das classes model do sistema.
+	* Obs: para funcionar é necessário que os names dos inputs do formulário 
+	* sejam iguais aos nomes dos campos da tabela.
+	* @param array $colunas Dados do cliente recuperados do banco de dados.
+	* @return array $arrObj Retorna um array contendo apenas os dados relevantes pa o objeto.
+	*/
 	private function getObjectData(array $colunas) : array
 	{
 		$arrObj = [];
@@ -455,6 +579,12 @@ class ClienteController extends Controller
 		return $arrObj;
 	}
 
+	/**
+	* <b>preencherFormEditar</b>:
+	* Recupera os dados de um cliente na base de dados,
+	* Monta um array associativo e preenche o formulário de edição com os dados recuperados.
+	* @param int $clienteId Id do cliente a ser atualizado.
+	*/
 	private function preencherFormEditar(int $clienteId)
 	{
 		$clienteConteudoValues = array();
@@ -487,6 +617,10 @@ class ClienteController extends Controller
 		}		
 	}
 
+	/**
+	* <b>clearForm</b>:
+	* Limpa todos os dados do formulário de cadastro.
+	*/
 	private function clearForm()
 	{
 		$this->clienteConteudoValues = [
@@ -509,6 +643,12 @@ class ClienteController extends Controller
 		];
 	}
 
+	/**
+	* <b>clearForm</b>:
+	* Valida todos os dados do formulário de cadastro.
+	* @param array $formData Dados do formulario a serem validados.
+	* @return bool $verify Retorna true em caso de validação de todos os dados.
+	*/
 	private function validarDadosForm(array $formData)
 	{
 		$verify = false;
