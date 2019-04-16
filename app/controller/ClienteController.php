@@ -167,8 +167,10 @@ class ClienteController extends Controller
 		$this->pageAction = 'Buscar';
 		$this->msg = '';
 
-		$this->setData();
-		$this->show();
+		$this->clienteConteudoValues['data'] = '';
+		$this->setLinkClienteConteudo('./app/view/cliente-busca.html');
+
+		$this->showViewBusca();
 	}	
 
 
@@ -193,6 +195,14 @@ class ClienteController extends Controller
 	}
 
 	private function showViewList()
+	{
+		$this->setLinkConteudo('./app/view/cliente-view.html');	
+		$this->setData();
+
+		$this->show();
+	}
+
+	private function showViewBusca()
 	{
 		$this->setLinkConteudo('./app/view/cliente-view.html');	
 		$this->setData();

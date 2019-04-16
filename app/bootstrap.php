@@ -53,4 +53,9 @@ $app->get('/admin/cliente/lista', function(){
 	$cliente->listar();
 });
 
+$app->get('/admin/cliente/busca', function(){
+	$cliente = new ClienteController;
+	$cliente->buscar();
+});
+
 $app->run();

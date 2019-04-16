@@ -51,6 +51,7 @@ form span { display: block; margin-bottom: 6px; }
     box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5);
 }
 
+.btn-large{padding: 9px 35px; font-size: 1.2em;}
 .btn-meddium{padding: 7px 25px; font-size: 1em;}
 .btn-smal{padding: 4px 15px; font-size: 0.9em;}
 
@@ -64,6 +65,8 @@ form span { display: block; margin-bottom: 6px; }
 .btn-dark-blue:hover{background: #04f; color: #fff; border: 1px solid #03f;}
 .btn-white{background: #fff; color: #999; border: 1px solid #ddd;}
 .btn-white:hover{background: #ccc; color: #fff; border: 1px solid #bbb; text-shadow: 1px 1px 2px #666;}
+.btn-gray{background: #f7f7f7; color: #777; border: 1px solid #c9c9c9;}
+.btn-gray:hover{background: #f4f4f4; color: #666; border: 1px solid #bbb;}
 
 
 /*
