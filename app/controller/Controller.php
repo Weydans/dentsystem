@@ -8,14 +8,15 @@
  */
 
 abstract class Controller
-{
+{	
 	private $mainHeader;
+	protected $pageController;
 	private $mainFooter;
 
 	protected $msg;
 	protected $data;
-	protected $pageController;
 	protected $view;
+	protected $userLogin;
 
 	/**
 	* <b>setHeader</b>: 
@@ -55,6 +56,23 @@ abstract class Controller
 		$this->view = $this->mainHeader . $this->pageController . $this->mainFooter;
 
 		echo $this->view;
+	}
+
+	/**
+	 * <b>verifyLogin</b>:
+	 * Verifica se existe uma sessão de acesso ao admin,
+	 * Redireciona para view login caso não exista.
+	 */
+	protected function verifyLogin()
+	{		
+		session_start();
+		
+		if ($_SESSION['user']){
+			$this->userLogin = $_SESSION['user'];
+		} else {
+			header('location: ' . HOME . '?exe=restrito');
+			exit();
+		}
 	}
 	
 }

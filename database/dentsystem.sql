@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `dentsystem`.`user` (
   `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(45) NOT NULL,
   `user_email` VARCHAR(65) NOT NULL,
-  `user_pass` VARCHAR(6) NOT NULL,
+  `user_pass` VARCHAR(60) NOT NULL,
   `user_level` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC))

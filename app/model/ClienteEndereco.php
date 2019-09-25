@@ -82,17 +82,17 @@ class ClienteEndereco extends Model
 			$sql->query(
 				'UPDATE ' . self::$table . ' 
 				SET 
-				cliente_endereco_numero = :cliente_endereco_numero,
-				cliente_endereco_complemento = :cliente_endereco_complemento,
-				cliente_id = :cliente_id,
-				endereco_id = :endereco_id
+					cliente_endereco_numero 	 = :cliente_endereco_numero,
+					cliente_endereco_complemento = :cliente_endereco_complemento,
+					cliente_id 					 = :cliente_id,
+					endereco_id 				 = :endereco_id
 				WHERE 
-				cliente_id = :cliente_id',
+					cliente_id 					 = :cliente_id',
 				array(
-					':cliente_endereco_numero' =>$data['cliente_endereco_numero'],
+					':cliente_endereco_numero' 		=>$data['cliente_endereco_numero'],
 					':cliente_endereco_complemento' =>$data['cliente_endereco_complemento'],
-					':cliente_id' =>$data['cliente_id'],
-					':endereco_id' =>$data['endereco_id']
+					':cliente_id' 					=>$data['cliente_id'],
+					':endereco_id' 					=>$data['endereco_id']
 				)
 			);
 

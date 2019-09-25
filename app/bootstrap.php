@@ -28,6 +28,11 @@ $app->get('/', function(){
 	$login->pageLogin();
 });
 
+$app->get('/logout', function(){
+	$login = new LoginController;
+	$login->exeLogout();
+});
+
 $app->get('/admin/dashboard', function(){
 	$dashboard = new DashboardController;
 	$dashboard->showDashboard();

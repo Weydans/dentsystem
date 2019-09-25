@@ -31,7 +31,9 @@ class DashboardController extends Controller
 	*/
 	private function show()
 	{		
-		$this->setHeader('./app/view/topo.html');
+		$this->verifyLogin();
+
+		$this->setHeader('./app/view/topo.html', $this->userLogin);
 		$this->setFooter('./app/view/rodape.html');
 		$this->setContent('./app/view/dashboard.html');
 	}

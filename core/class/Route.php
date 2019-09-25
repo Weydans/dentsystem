@@ -20,6 +20,8 @@ class Route {
     public function __construct() 
     {
         $this->url = strip_tags(trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+        $this->url = str_replace(HOME, '', $this->url);
+        //var_dump($this->url);
     }
 
     /**
@@ -86,8 +88,8 @@ class Route {
         $this->route = $route;
 
         $urlArray = explode('/', $this->url);
-        $routeArray = explode('/', $this->route);
-
+        $routeArray = explode('/', $this->route); 
+        
         $param = array();
 
         if ($this->route === $this->url && $this->result === null){

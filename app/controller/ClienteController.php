@@ -59,7 +59,7 @@ class ClienteController extends Controller
 
 			if (is_numeric($cadResult)){
 				$id = $cadResult;
-				header("location: http://dentsystem.com/admin/cliente/{$id}/editar?create=true");
+				header("location: " . BASE_URL . HOME . "/admin/cliente/{$id}/editar?create=true");
 			}
 
 		}
@@ -90,7 +90,7 @@ class ClienteController extends Controller
 
 			if (is_numeric($atualizaResult)){
 				$id = $atualizaResult;
-				header("location: http://dentsystem.com/admin/cliente/{$id}/editar?update=true");
+				header("location: " . BASE_URL . HOME . "/cliente/{$id}/editar?update=true");
 			}	
 
 		} elseif (is_numeric($id)){
@@ -210,8 +210,10 @@ class ClienteController extends Controller
 	* Realiza a montagem e exibição da view completa
 	*/
 	private function show()
-	{		
-		$this->setHeader('./app/view/topo.html');
+	{	
+		$this->verifyLogin();
+
+		$this->setHeader('./app/view/topo.html', $this->userLogin);
 		$this->setFooter('./app/view/rodape.html');
 		$this->setContent('./app/view/dashboard.html');
 	}
@@ -544,7 +546,7 @@ class ClienteController extends Controller
 	*/
 	private function atualizarClienteEndereco(object $clienteEndereco, $resAtualizarCliente, $enderecoId)
 	{
-		if ($resCadCliente === true){
+		if ($resAtualizarCliente === true){
 			$this->dataClienteEndereco['cliente_id'] = $this->dataForm['cliente_id'];
 			$this->dataClienteEndereco['cliente_endereco_numero'] = $this->dataForm['cliente_endereco_numero'];
 			$this->dataClienteEndereco['cliente_endereco_complemento'] = $this->dataForm['cliente_endereco_complemento'];
@@ -668,6 +670,7 @@ class ClienteController extends Controller
 
 		} elseif (strlen($formData['cliente_cpf']) !== 11  || !is_numeric($formData['cliente_cpf'])){
 			$this->msg = Msg::setMsg('O campo <b>CPF</b> deve conter apenas números, sendo exatamente 11 digitos.', ERROR);
+			
 		} elseif (strlen($formData['cliente_email']) > 65 || !filter_var($formData['cliente_email'], FILTER_VALIDATE_EMAIL)){
 			$this->msg = Msg::setMsg('Informe um <b>E-mail</b> válido com no máximo 65 caracteres.', ERROR);
 
