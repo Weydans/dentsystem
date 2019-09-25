@@ -3,50 +3,50 @@
 	<input type="text" name="cliente_id" readonly value="{cliente_id}" />			
 
 	<label>Nome</label>
-	<input type="text" name="cliente_name" value="{cliente_name}" />			
+	<input type="text" name="cliente_name" value="{cliente_name}" required />			
 
 	<label>RG</label>
-	<input type="text" name="cliente_rg" value="{cliente_rg}" placeholder="Apenas números" />			
+	<input type="text" name="cliente_rg" value="{cliente_rg}" placeholder="Apenas números" required />			
 
 	<label>CPF</label>
-	<input type="text" name="cliente_cpf" value="{cliente_cpf}" placeholder="Apenas números" />			
+	<input type="text" name="cliente_cpf" value="{cliente_cpf}" placeholder="Apenas números" required />			
 
 	<label>Email</label>
-	<input type="email" name="cliente_email" value="{cliente_email}" />			
+	<input type="email" name="cliente_email" value="{cliente_email}" required />			
 
 	<label>Data de Nascimento</label>
-	<input type="date" name="cliente_nascimento" value="{cliente_nascimento}" />			
+	<input type="date" name="cliente_nascimento" value="{cliente_nascimento}" required />			
 
 	<label>Telefone 1</label>
-	<input type="text" name="cliente_phone1" value="{cliente_phone1}" placeholder="Apenas números" />	
+	<input type="text" name="cliente_phone1" value="{cliente_phone1}" placeholder="Apenas números" required />	
 
 	<label>Telefone 2</label>
-	<input type="text" name="cliente_phone2" value="{cliente_phone2}" placeholder="Apenas números" />	
+	<input type="text" name="cliente_phone2" value="{cliente_phone2}" placeholder="Apenas números" required />	
 
 	<label>Cep</label>
 	<input id="cep" maxlength="9"
-	onblur="pesquisacep(this.value);" type="text" name="endereco_cep" value="{endereco_cep}" placeholder="Apenas números" />		
+	onblur="pesquisacep(this.value);" type="text" name="endereco_cep" value="{endereco_cep}" placeholder="Apenas números" required />		
 	
 	<label>Logradouro</label>
-	<input id="rua" type="text" name="endereco_logradouro" value="{endereco_logradouro}" />
+	<input id="rua" type="text" name="endereco_logradouro" value="{endereco_logradouro}" required />
 	
 	<label>Número</label>
-	<input type="text" name="cliente_endereco_numero" value="{cliente_endereco_numero}" />	
+	<input type="text" name="cliente_endereco_numero" value="{cliente_endereco_numero}" required />	
 
 	<label>Complemento</label>
 	<input id="" type="text" name="cliente_endereco_complemento" value="{cliente_endereco_complemento}" />	
 	
 	<label>Bairro</label>
-	<input id="bairro" type="text" name="endereco_bairro" value="{endereco_bairro}" />			
+	<input id="bairro" type="text" name="endereco_bairro" value="{endereco_bairro}" required />			
 	
 	<label>Cidade</label>
-	<input id="cidade" type="text" name="endereco_cidade" value="{endereco_cidade}" />			
+	<input id="cidade" type="text" name="endereco_cidade" value="{endereco_cidade}" required />			
 
 	<label>Estado</label>
-	<input id="uf" type="text" name="endereco_estado" value="{endereco_estado}" />			
+	<input id="uf" type="text" name="endereco_estado" value="{endereco_estado}" required />			
 
 	<label>País</label>
-	<input id="pais" type="text" name="endereco_pais" value="{endereco_pais}" />
+	<input id="pais" type="text" name="endereco_pais" value="{endereco_pais}" required />
 
 	<button class="btn btn-meddium btn-blue">{pageAction}</button>
 </form>

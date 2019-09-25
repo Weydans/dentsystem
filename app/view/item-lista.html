@@ -1,23 +1,24 @@
-
-<ul class="{backgroundRow}">
-	<li class="itemId">{cliente_id}</li>
-	<li class="itemName">{cliente_name}</li>
-	<li class="itemPhone1">{cliente_phone1}</li>
-	<li class="itemEmail">{cliente_email}</li>
-	<li class="itemVer">
-		<a href="http://localhost/weydans/projetos/dentsystem/admin/cliente/{cliente_id}/perfil-cliente">
-			<span class="btn btn-green">Ver</span>
-		</a>
-	</li>
-	<li class="itemEditar">
-		<a href="http://localhost/weydans/projetos/dentsystem/admin/cliente/{cliente_id}/editar">
-			<span class="btn btn-blue">Editar</span>
-		</a>
-	</li>
-	<li class="itemExcluir">
-		<a href="http://localhost/weydans/projetos/dentsystem/admin/cliente/lista?id={cliente_id}" 
-			onclick="return confirm('Dseseja realmente excluir cliente {cliente_name} permanentemente?')">
-			<span class="btn btn-red">Excluir</span>
-		</a>
-	</li>
-</ul>
+<tr class="{backgroundRow}">
+	<td class="itemId">{cliente_id}</td>
+	<td class="itemName">{cliente_name}</td>
+	<td class="itemPhone1">{cliente_phone1}</td>
+	<td class="itemEmail">{cliente_email}</td>
+	<td class="itemAcoes">
+		<span>
+			<a href="http://localhost/weydans/projetos/dentsystem/admin/cliente/{cliente_id}/perfil-cliente">
+				<span class="btn btn-green">Ver</span>
+			</a>
+		</span>
+		<span>
+			<a href="http://localhost/weydans/projetos/dentsystem/admin/cliente/{cliente_id}/editar">
+				<span class="btn btn-blue">Editar</span>
+			</a>
+		</span>
+		<span>
+			<a href="http://localhost/weydans/projetos/dentsystem/admin/cliente/lista?id={cliente_id}"
+				onclick="return confirm('Dseseja realmente excluir cliente {cliente_name} permanentemente?')">
+				<span class="btn btn-red">Excluir</span>
+			</a>
+		</span>
+	</td>
+</tr>

@@ -11,11 +11,12 @@ function limpa_formulário_cep() {
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById('rua').value=(conteudo.logradouro);
-        document.getElementById('bairro').value=(conteudo.bairro);
-        document.getElementById('cidade').value=(conteudo.localidade);
-        document.getElementById('uf').value=(conteudo.uf);
-        document.getElementById('pais').value=(conteudo.pais);
+        conteudo.pais = 'Brasil';
+        document.getElementById('rua').value    = (conteudo.logradouro);
+        document.getElementById('bairro').value = (conteudo.bairro);
+        document.getElementById('cidade').value = (conteudo.localidade);
+        document.getElementById('uf').value     = (conteudo.uf);
+        document.getElementById('pais').value   = (conteudo.pais);
     } //end if.
     else {
         //CEP não Encontrado.
@@ -28,6 +29,8 @@ function pesquisacep(valor) {
 
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
+    cep = cep.replace('-', '');
+    document.getElementById('cep').value = cep;
 
     //Verifica se campo cep possui valor informado.
     if (cep != "") {

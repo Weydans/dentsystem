@@ -1,20 +1,44 @@
-
 <section class="container lista">
-	<header>
-		<h1>Lista de clientes cadastrados</h1>
-	</header>
-
-	<div class="topoLista">
-		<ul>
-			<li class="itemId">Registro</li>
-			<li class="itemName">Nome</li>
-			<li class="itemPhone1">Telefone</li>
-			<li class="itemEmail">E-mail</li>
-			<li class="itemAction">Ação</li>
-		</ul>
-	</div>
 	
-	<div class="contentLista">
-		{itemLista}		
-	</div>
+	<table>
+		<header>
+			<h1>Lista de clientes cadastrados</h1>
+		</header>
+		<thead class="topoLista">
+			<tr>
+				<th class="itemId">Registro</th>
+				<th class="itemName">Nome</th>
+				<th class="itemPhone1">Telefone</th>
+				<th class="itemEmail">E-mail</th>
+				<th colspan="1" class="itemAction">Ação</th>
+			</tr>
+		</thead>
+
+		<tbody class="contentLista">
+			{itemLista}
+		</tbody>
+	</table>
+	<script src="http://localhost/weydans/projetos/dentsystem/app/view/js/jquery.js"></script>
+	<script src="http://localhost/weydans/projetos/dentsystem/app/view/js/js-xlsx-master/xlsx.core.js"></script>
+	<script src="http://localhost/weydans/projetos/dentsystem/app/view/js/FileSaver.js-master/src/FileSaver.js"></script>
+	<script src="http://localhost/weydans/projetos/dentsystem/app/view/js/TableExport-3.3.13/src/stable/js/tableexport.js"></script>
+	<script>
+		window.addEventListener('load', () => {
+			$("table").tableExport({
+				headings: true,                    // (Boolean), display table headings (th/td elements) in the <thead>
+				footers: true,                     // (Boolean), display table footers (th/td elements) in the <tfoot>
+				formats: ["xlsx", "csv", "txt"],   // (String[]), filetypes for the export
+				fileName: "id",                    // (id, String), filename for the downloaded file
+				bootstrap: true,                   // (Boolean), style buttons using bootstrap
+				position: "bottom",                   // (top, bottom), position of the caption element relative to table
+				ignoreRows: null,                  // (Number, Number[]), row indices to exclude from the exported file(s)
+				ignoreCols: null,                  // (Number, Number[]), column indices to exclude from the exported file(s)
+				ignoreCSS: ".tableexport-ignore",  // (selector, selector[]), selector(s) to exclude from the exported file(s)
+				emptyCSS: ".tableexport-empty",    // (selector, selector[]), selector(s) to replace cells with an empty string in the exported file(s)
+				trimWhitespace: false
+			});
+
+			$('caption button').addClass('buttonExport');
+		});
+	</script>
 </section>

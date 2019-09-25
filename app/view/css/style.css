@@ -142,24 +142,19 @@ select{float:left; width: 50%; padding: 5px 10px; border: 1px solid #ddd; border
 /* 
    ===== LISTA CLIENTES =====
 */
-.lista h1{padding: 10px 15px; background: #0c9; border: 1px solid #0b8; font-size: 1.2em; font-weight: 100; color: #fff; text-shadow: 1px 1px 2px #777;}
-.lista ul{border-bottom: 1px solid #EBEBEB; font-size: 0.85em;}
-.lista .topoLista ul{padding: 4px 0; background: #00eeaa; border-bottom: 2px solid #00dd99;}
+table{width: 100%;}
+.lista h1{font-size: 1.8em; font-weight: 100;}
+.lista tr{border-bottom: 1px solid #EBEBEB; font-size: 0.85em;}
+.lista .topoLista th{padding: 4px 0; background: #999;}
 .par {background: #f1f1ff;}
 .impar {background: #fefeff;}
-.par:hover, .impar:hover{background: #aaffff; color: #666}
-.lista .topoLista li{border-right: 1px solid #fff; font-weight: 600; color: #fff; text-shadow: 0 0 2px #444;}
-.topoLista li.itemAction{border: none;}
-.lista li{display: inline-block; padding: 5px; text-align: center; clear: both; vertical-align: middle; color: #777;}
-.lista .btn{padding: 4px 0; font-size: 0.875em; width: 100%; text-align: center;}
-.lista .itemId{width: 7.5%;}
-.lista .itemName{width: 30%;}
-.lista .itemPhone1{width: 14%;}
-.lista .itemEmail{width: 26%;}
-.lista .itemAction{width: 20.5%; text-align: center; border: none;}
-.lista .itemVer{width: 6.5%;}
-.lista .itemEditar{width: 6.5%;}
-.lista .itemExcluir{width: 6.5%;}
+.par:hover, .impar:hover{background: #ffffb0; color: #666}
+.lista .topoLista th{font-weight: 600; color: #fff; text-shadow: 0 0 2px #444;}
+.topoLista th.itemAction{border: none;}
+.lista td{padding: 5px; text-align: center; clear: both; vertical-align: middle; color: #777;}
+.lista .btn{padding: 3px 10px; margin: 0 2px; font-size: 0.875em; text-align: center;}
+.buttonExport{width: 130px; margin-bottom: 5px !important; float: right !important; padding: 4px; border: 1px solid #09f; background: #fff; color: #08d;}
+.buttonExport:hover{background: #08d; color: #fff; transition: 0.5s}
 
 /* 
    ===== BUSCA CLIENTE =====
