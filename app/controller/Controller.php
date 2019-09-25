@@ -67,7 +67,7 @@ abstract class Controller
 	{		
 		session_start();
 		
-		if ($_SESSION['user']){
+		if (isset($_SESSION['user'])){
 			$this->userLogin = $_SESSION['user'];
 		} else {
 			header('location: ' . HOME . '?exe=restrito');

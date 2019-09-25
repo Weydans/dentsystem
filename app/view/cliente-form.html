@@ -24,28 +24,30 @@
 	<input type="text" name="cliente_phone2" value="{cliente_phone2}" placeholder="Apenas números" />	
 
 	<label>Cep</label>
-	<input type="text" name="endereco_cep" value="{endereco_cep}" placeholder="Apenas números" />		
-
+	<input id="cep" maxlength="9"
+	onblur="pesquisacep(this.value);" type="text" name="endereco_cep" value="{endereco_cep}" placeholder="Apenas números" />		
+	
 	<label>Logradouro</label>
-	<input type="text" name="endereco_logradouro" value="{endereco_logradouro}" />
-
+	<input id="rua" type="text" name="endereco_logradouro" value="{endereco_logradouro}" />
+	
 	<label>Número</label>
 	<input type="text" name="cliente_endereco_numero" value="{cliente_endereco_numero}" />	
 
 	<label>Complemento</label>
-	<input type="text" name="cliente_endereco_complemento" value="{cliente_endereco_complemento}" />	
-
+	<input id="" type="text" name="cliente_endereco_complemento" value="{cliente_endereco_complemento}" />	
+	
 	<label>Bairro</label>
-	<input type="text" name="endereco_bairro" value="{endereco_bairro}" />			
-
+	<input id="bairro" type="text" name="endereco_bairro" value="{endereco_bairro}" />			
+	
 	<label>Cidade</label>
-	<input type="text" name="endereco_cidade" value="{endereco_cidade}" />			
+	<input id="cidade" type="text" name="endereco_cidade" value="{endereco_cidade}" />			
 
 	<label>Estado</label>
-	<input type="text" name="endereco_estado" value="{endereco_estado}" />			
+	<input id="uf" type="text" name="endereco_estado" value="{endereco_estado}" />			
 
 	<label>País</label>
-	<input type="text" name="endereco_pais" value="{endereco_pais}" />
+	<input id="pais" type="text" name="endereco_pais" value="{endereco_pais}" />
 
 	<button class="btn btn-meddium btn-blue">{pageAction}</button>
 </form>
+<script src="http://localhost/weydans/projetos/dentsystem/app/view/js/viaCep.js"></script>
