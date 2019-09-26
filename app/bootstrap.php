@@ -73,4 +73,9 @@ $app->get('/admin/cliente/busca', function(){
 	$cliente->buscar();
 });
 
+$app->get('/admin/cliente/{id}', function($id){
+	$cliente = new PerfilClienteController();
+	$cliente->loadCliente($id);
+});
+
 $app->run();

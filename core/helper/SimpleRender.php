@@ -1,11 +1,11 @@
 <?php
 
 /**
-* <b>Render</b> Classe do tipo HELPER* 
+* <b>SimpleRender</b> Classe do tipo HELPER* 
 * Responsável por substituir os links das views por valores do sistema.
 *@author Wydans Campos de Barros, 06/03/2019.
 */
-abstract class Render {
+abstract class SimpleRender {
 
     private static $data;
     private static $view;

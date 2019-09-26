@@ -9,7 +9,7 @@
 
 // DEPENDÊNCIAS NECESSÁRIAS PARA O FUNCIONAMENTO DO SISTEMA
 require('../config.php');
-require('../helper/Render.php');
+require('../helper/SimpleRender.php');
 require('../helper/Msg.php');
 
 $data = false;
@@ -89,6 +89,6 @@ if ($data){
 	$msg = ['<div class="msg"></div>' => ''];
 } // end if Post
 
-$view = Render::show('./model-generator.html', $msg);
+$view = SimpleRender::show('./model-generator.html', $msg);
 
 echo $view;

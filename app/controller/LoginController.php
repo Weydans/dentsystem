@@ -84,7 +84,7 @@ class LoginController extends Controller
 		$this->data['email'] = $this->dataLogin['user_email'];
 		$this->data['senha'] = $this->dataLogin['user_pass'];
 
-		$this->view = Render::show('./app/view/login.html', $this->data);
+		$this->view = SimpleRender::show('./app/view/login.html', $this->data);
 
 		echo $this->view;
 	}

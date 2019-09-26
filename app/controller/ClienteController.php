@@ -275,7 +275,7 @@ class ClienteController extends Controller
 		foreach ($listaClientes as $cliente) {
 			$backgroundRow % 2 == 0 ? $cliente['backgroundRow'] = 'par' : $cliente['backgroundRow'] = 'impar';
 
-			$lista .= Render::show('./app/view/item-lista.html', $cliente);
+			$lista .= SimpleRender::show('./app/view/item-lista.html', $cliente);
 
 			$backgroundRow++;
 		}
@@ -326,7 +326,7 @@ class ClienteController extends Controller
 
 		$this->viewClienteConteudo['<li class="' . strtolower($this->pageAction) . '">'] = '<li class="bottomNone">';
 
-		$this->viewClienteConteudo['clienteConteudo'] = Render::show($caminhoArquivoPagina, $this->clienteConteudoValues);
+		$this->viewClienteConteudo['clienteConteudo'] = SimpleRender::show($caminhoArquivoPagina, $this->clienteConteudoValues);
 	}
 
 	/**
@@ -338,7 +338,7 @@ class ClienteController extends Controller
 	*/
 	private function setLinkConteudo(string $caminhoArquivoPagina)
 	{
-		$this->viewConteudo = Render::show($caminhoArquivoPagina, $this->viewClienteConteudo);
+		$this->viewConteudo = SimpleRender::show($caminhoArquivoPagina, $this->viewClienteConteudo);
 	}
 
 	/**

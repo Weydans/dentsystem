@@ -26,7 +26,7 @@ abstract class Controller
 	*/
 	protected function setHeader(string $caminhoArquivoHeader, array $dados = array())
 	{
-		$this->mainHeader = Render::show($caminhoArquivoHeader, $dados);
+		$this->mainHeader = SimpleRender::show($caminhoArquivoHeader, $dados);
 	}
 
 	/**
@@ -37,7 +37,7 @@ abstract class Controller
 	*/
 	protected function setFooter(string $caminhoArquivoFooter, array $dados = array())
 	{
-		$this->mainFooter = Render::show($caminhoArquivoFooter, $dados);
+		$this->mainFooter = SimpleRender::show($caminhoArquivoFooter, $dados);
 	}
 
 	/**
@@ -51,7 +51,7 @@ abstract class Controller
 	{
 		$this->data['<div class="msg"></div>'] = $this->msg;
 
-		$this->pageController = Render::show($caminhoArquivoPagina , $this->data);
+		$this->pageController = SimpleRender::show($caminhoArquivoPagina , $this->data);
 
 		$this->view = $this->mainHeader . $this->pageController . $this->mainFooter;
 
